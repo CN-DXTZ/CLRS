@@ -1,14 +1,14 @@
 选择排序
 (1)
-for i = 1 to (A.lenght-1)
+for i = 1 to (A.length-1)
     // 找到子序列的最小数的下标
     p_min = i
-    for j = (i+1) to A.lenght
-        if A[j] < p_min
+    for j = (i+1) to A.length
+        if A[j] < A[p_min]
             p_min = j
     // 交换最小数
     tmp = A[p_min]
-    A[p_min] = A[j]
-    A[j] = tmp
+    A[p_min] = A[i]
+    A[i] = tmp
 (2)
 都是Θ(n^2)
