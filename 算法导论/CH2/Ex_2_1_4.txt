@@ -1,0 +1,11 @@
+二进制加法
+
+CF = 0 // 进位标志位
+for i = C.length downto 2
+    C[i] = A[i-1] + B[i-1] + CF
+    if C[i] >= 2
+       C[i] = C[i] - 2
+       CF = 1
+    else
+       CF = 0
+C[1] = CF

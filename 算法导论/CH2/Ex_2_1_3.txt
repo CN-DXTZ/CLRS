@@ -1,0 +1,6 @@
+线性查找
+
+for i = 1 to A.length
+    if v == A[i]
+        return i        
+return i = NULL
