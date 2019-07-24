@@ -1,6 +1,7 @@
 选择排序
 (1)
-for i = 1 to (A.length-1)
+SELECTION_SORT(A)
+for i = 1 to A.length-1
     // 找到子序列的最小数的下标
     p_min = i
     for j = (i+1) to A.length
@@ -10,5 +11,6 @@ for i = 1 to (A.length-1)
     tmp = A[p_min]
     A[p_min] = A[i]
     A[i] = tmp
+    
 (2)
 都是Θ(n^2)

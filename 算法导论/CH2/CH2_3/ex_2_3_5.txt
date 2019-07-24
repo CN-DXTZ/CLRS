@@ -1,0 +1,28 @@
+若找到对应v值，返回对应索引，否则返回比v小的数中最大的数的坐标+1
+(1)
+二分查找（递归）
+BINARY_SEARCH(A, p, q, v)
+if p == q
+    if v <= A[p] // 等于号为v==A[p]时，小于号为v<A[0]时
+        return p
+    else
+        return p + 1
+mid = (p + q) / 2
+if v <= A[mid]
+    BINARY_SEARCH(A, p, mid, v)
+else
+    BINARY_SEARCH(A, mid + 1, q, v)
+
+(2)
+二分查找（迭代）
+BINARY_SEARCH(A, p, q, v)
+while p < q
+    mid = (p + q) / 2
+    if v <= A[mid]
+        q = mid
+    else
+        p = mid + 1
+if v <= A[p] // 等于号为v==A[p]时，小于号为v<A[0]时
+    return p
+else
+    return p + 1

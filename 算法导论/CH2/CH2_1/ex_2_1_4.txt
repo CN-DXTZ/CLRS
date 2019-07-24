@@ -1,5 +1,5 @@
 二进制加法
-
+BINARY_ADD(A, B, C)
 CF = 0 // 进位标志位
 for i = C.length downto 2
     C[i] = A[i-1] + B[i-1] + CF

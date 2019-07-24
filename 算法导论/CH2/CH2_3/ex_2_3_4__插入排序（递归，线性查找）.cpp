@@ -1,4 +1,4 @@
-// 插入排序
+// 插入排序（递归，线性查找）
 #include <iostream>
 using namespace std;
 
@@ -6,11 +6,11 @@ using namespace std;
 
 void insertion_sort(int A[], int length)
 {
-    for (int j = 1; j < length; j++)
+    if (length > 1)
     {
-        int key = A[j];
-
-        int i = j - 1;
+        insertion_sort(A, length - 1);
+        int key = A[length - 1];
+        int i = (length - 1) - 1;
         while (i >= 0 && A[i] > key)
         {
             A[i + 1] = A[i];

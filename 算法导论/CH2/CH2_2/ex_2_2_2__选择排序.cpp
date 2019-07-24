@@ -6,11 +6,11 @@ using namespace std;
 
 void selection_sort(int A[], int length)
 {
-    for (int i = 0, j; i < (length - 1); i++)
+    for (int i = 0; i < (length - 1); i++)
     {
         int p_min = i;
 
-        for (j = (i + 1); j < length; j++)
+        for (int j = (i + 1); j < length; j++)
             if (A[j] < A[p_min])
                 p_min = j;
 
