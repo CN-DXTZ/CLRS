@@ -1,5 +1,3 @@
-先归并排序（MERGE_SORT(A, p, r)参见ex_2_3_2.txt），再从两边向中间扫描
-
 TWO_SUM(A, v)
 MERGE_SORT(A, 1, A.length)
 i = 1
@@ -13,3 +11,6 @@ while i <= j
     else
         j = j - 1
 return false
+注：
+先归并排序，再从两边向中间扫描
+其中归并排序（MERGE_SORT(A, p, r)）参见ex_2_3_2.txt

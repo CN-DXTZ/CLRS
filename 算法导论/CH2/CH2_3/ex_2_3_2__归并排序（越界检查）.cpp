@@ -1,6 +1,5 @@
 // 归并排序（越界检查）
 #include <iostream>
-#include <climits>
 using namespace std;
 
 #define GET_LEN(array) (sizeof(array) / sizeof(array[0]))

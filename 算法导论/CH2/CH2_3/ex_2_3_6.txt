@@ -1,5 +1,5 @@
 (1)
-注：其中二分查找BINARY_SEARCH(A, p, q, v)参见ex_2_3_5.txt
+注：其中
 插入排序（迭代，二分查找）
 INSERTION_SORT(A)
 for j = 2 to A.length
@@ -8,6 +8,8 @@ for j = 2 to A.length
     for k = j-1 downto i
         A[k+1] = A[k]
     A[i] = key
+注：
+其中二分查找（BINARY_SEARCH(A, p, q, v)）参见ex_2_3_5.txt
 
 (2)
 不能，查找是O(lgn)，但移动是O(n)

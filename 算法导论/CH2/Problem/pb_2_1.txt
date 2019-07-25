@@ -1,0 +1,37 @@
+(0)
+归并插入排序
+MERGE_INSERTION_SORT(A, p, r, k)
+if p < r
+    if (r - p) <= k // 插入排序
+        INSERTION_SORT(A, p, r)
+    else // 归并排序 
+        q = (p + r) / 2
+        MERGE_INSERTION_SORT(A, p, q)
+        MERGE_INSERTION_SORT(A, q+1, r)
+        MERGE(A, p, q, r)
+注：
+其中归并操作（MERGE(A, p, q, r)）参见ex_2_3_2.txt
+其中插入排序（INSERTION_SORT(A, p, r)）改自EG_2_1_1（INSERTION_SORT(A)）
+INSERTION_SORT(A, p, r)
+for j = p to r
+    key = A[j]
+    i = j - 1
+    while i>=p and A[i]>key
+        A[i + 1] = A[i]
+        i = i - 1
+    A[i + 1] = key    
+
+(a)
+T=(n/k)·Θ(k^2)=Θ(nk)
+(b)
+树的深度为lg(n/k)，所以总合并时间为Θ(nlg(n/k))
+(c)
+Θ(nk + nlg(n/k)) = Θ(nk + nlgn - nlgk))
+                 = Θ(nk + nlgn)) （ (lgk/k) < 1 ）
+要使             == Θ(nlgn))
+应使 (k/lgn) < 1，即 k < lgn
+(d)
+设 T(插入)= c_1·n^2，T(归并)= c_2·nlgn
+则 当排序长度为k的子序列的时间分别为
+   T(插入)= c_1·k^2，T(归并)= c_2·klgk
+故 应求出 MAX（c_2·klgk - c_1·k^2），即 MAX（c_2·lgk - c_1·k）

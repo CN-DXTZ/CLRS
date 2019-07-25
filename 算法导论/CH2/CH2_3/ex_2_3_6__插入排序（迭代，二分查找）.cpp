@@ -4,7 +4,7 @@ using namespace std;
 
 #define GET_LEN(array) (sizeof(array) / sizeof(array[0]))
 
-/*** 参见ex_2_3_5__二分查找（迭代）.cpp ***/
+/********** 参见ex_2_3_5__二分查找（迭代）.cpp **********/
 int binary_search(int A[], int p, int q, int v)
 {
     while (p < q)
@@ -18,7 +18,7 @@ int binary_search(int A[], int p, int q, int v)
 
     return ((v <= A[p]) ? p : p + 1);
 }
-/*** 参见ex_2_3_5__二分查找（迭代）.cpp ***/
+/************* 参见ex_2_3_5__二分查找（迭代）.cpp **********/
 
 void insertion_sort(int A[], int length)
 {

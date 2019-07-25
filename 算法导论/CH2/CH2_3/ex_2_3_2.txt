@@ -23,7 +23,6 @@ while i <= n1 and j <= n2
         A[k] = R[j]
         j = j + 1
     k = k + 1
-
 // i==n1时，右半剩余部分全复制即为不变
 // j==n2时，左半部分循环复制 
 while i <= n1
