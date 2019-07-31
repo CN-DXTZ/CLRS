@@ -1,0 +1,2 @@
+if high == low
+    return (low, high, max(A[low], 0) )

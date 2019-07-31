@@ -1,0 +1,13 @@
+最大子数组（暴力）
+FIND_MAXIMUM_SUBARRAY(A)
+max_sum = -∞
+sum = 0
+for i = 1 to length
+    sum = 0
+    for j = i to length
+        sum = sum + A[j]
+        if sum > max_sum
+            max_sum = sum
+            left = i
+            right = j
+return (left, right, max_sum)

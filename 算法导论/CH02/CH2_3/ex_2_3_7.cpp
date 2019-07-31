@@ -3,7 +3,7 @@ using namespace std;
 
 #define GET_LEN(array) (sizeof(array) / sizeof(array[0]))
 
-/********** 参见EG_2_3_1__归并排序（哨兵）.cpp **********/
+/*↓↓↓↓↓↓↓↓↓ 参见EG_2_3_1__归并排序（哨兵）.cpp ↓↓↓↓↓↓↓↓↓s*/
 void merge(int A[], int p, int q, int r)
 {
     int n1 = q - p + 1;
@@ -32,7 +32,7 @@ void merge_sort(int A[], int p, int r)
         merge(A, p, q, r);
     }
 }
-/********** 参见EG_2_3_1__归并排序（哨兵）.cpp **********/
+/*↑↑↑↑↑↑↑↑↑ 参见EG_2_3_1__归并排序（哨兵）.cpp ↑↑↑↑↑↑↑↑↑*/
 
 bool two_sum(int A[], int length, int v)
 {
