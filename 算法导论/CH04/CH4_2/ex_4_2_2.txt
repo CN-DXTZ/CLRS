@@ -1,0 +1,28 @@
+SQUARE_MATRIX_MULTIPLY_STRASSEN(A, B)
+n = A.rows
+let C be a new n×n matrix
+if n == 1
+    c_11 = a_11 · b_11
+else
+    S1 = B_12 - B_22
+    S2 = A_11 + A_12
+    S3 = A_21 + A_22
+    S4 = B_21 - B_11
+    S5 = A_11 + A_22
+    S6 = B_11 + B_22
+    S7 = A_12 - A_22
+    S8 = B_21 + B_22
+    S9 = A_11 - A_21
+    S10 = B_11 + B_12
+    P1 = SQUARE_MATRIX_MULTIPLY_STRASSEN(A_11, S[1]);
+    P2 = SQUARE_MATRIX_MULTIPLY_STRASSEN(S[2], B_22);
+    P3 = SQUARE_MATRIX_MULTIPLY_STRASSEN(S[3], B_11);
+    P4 = SQUARE_MATRIX_MULTIPLY_STRASSEN(A_22, S[4]);
+    P5 = SQUARE_MATRIX_MULTIPLY_STRASSEN(S[5], S[6]);
+    P6 = SQUARE_MATRIX_MULTIPLY_STRASSEN(S[7], S[8]);
+    P7 = SQUARE_MATRIX_MULTIPLY_STRASSEN(S[9], S[10]);
+    C_11 = P5 + P4 - P2 + P6
+    C_12 = P1 + P2
+    C_21 = P3 + P4
+    C_22 = P5 + P1 -P3 -P7
+return C
