@@ -1,5 +1,0 @@
-设 T(n) ≧ cnlg(n)
-T(n) =  2T([n/2]) + n
-     ≧ cnlg(n/2) + n
-     ≧ cnlg(n/2) + n - cnlg2 
-     ≧ cnlg(n/2) (当 1 - clg2 > 0)
