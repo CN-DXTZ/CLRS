@@ -1,0 +1,15 @@
+(1)
+RANDOM(a, b)
+diff = b - a // [0, diff] + a <=> [a, b]
+p = 0, d = diff
+while d > 0:
+    d = d >> 1;
+    p++;
+while true:
+    ans = 0
+    for i = 1 to p
+        ans = ans * 2 + RANDOM(0, 1)
+    if ans <= diff 
+        return ans + a
+(2)
+O(lg(b-a))
