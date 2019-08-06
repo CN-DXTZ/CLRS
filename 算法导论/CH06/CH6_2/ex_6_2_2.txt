@@ -1,0 +1,11 @@
+MIN-HEAPIFY(A, i):
+	l = LEFT(i)
+	r = RIGHT(i)
+	smallest = i
+	if l <= heap-size[A] and A[l] < A[i]:
+		smallest = l
+	if r <= heap-size[A] and A[r] < A[smallest]:
+		smallest = r
+	if smallest != i:
+		swap(A[i], A[smallest])
+        MIN-HEAPIFY(A, smallest)

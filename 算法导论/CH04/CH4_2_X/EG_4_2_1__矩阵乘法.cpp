@@ -1,5 +1,6 @@
 // 矩阵乘法
 #include <iostream>
+#include <cstdio>
 #include <cstring>
 #include <ctime>
 #include <windows.h>

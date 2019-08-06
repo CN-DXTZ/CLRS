@@ -1,0 +1,13 @@
+MIN-HEAPIFY(A, i):
+	while 2*i <= heap-size[A]:
+		l = LEFT(i)
+		r = RIGHT(i)
+		largest = i
+		if l <= heap-size[A] and A[l] > A[i]:
+			largest = l
+		if r <= heap-size[A] and A[r] > A[largest]:
+			largest = r
+		if largest != i:
+			swap(A[i], A[largest])
+            i = largest
+		else break
