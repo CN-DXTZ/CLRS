@@ -1,0 +1,19 @@
+将每个链表的头节点存入最小堆，
+并每次取出min的同时，
+min->next，即A[1]->next，
+并维护堆的性质，MAX-HEAPIFY(1)
+
+MERGE-K-LISTS(vector<ListNode *> A)
+ListNode *HEAD = new ListNode(0)
+ListNode *p = HEAD
+while A.size() != 0
+    p->next = A[1]
+    p = p->next
+    A[1] = A[1]->next;
+    if A[1] == NULL // 该链表访问完
+        A[1] = A[size]
+        A.heap-size -= 1
+    minHeapify(0)
+
+return HEAD->next
+

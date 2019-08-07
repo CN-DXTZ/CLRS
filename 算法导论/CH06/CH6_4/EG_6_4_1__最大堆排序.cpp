@@ -1,4 +1,4 @@
-// 最大优先队列
+// 最大堆，升序排序
 #include <iostream>
 #include <cstdio>
 using namespace std;
@@ -21,14 +21,11 @@ private:
     int parent(int i) { return (i - 1) >> 1; };
     int left(int i) { return (i << 1) + 1; };
     int right(int i) { return (i << 1) + 2; };
-    void max_Heapify(int i);
-    void build_max_Heap(void);
+    void maxHeapify(int i);
+    void buildMaxHeap(void);
 
 public:
     Heap(int *, int);
-    int get(int i) { return A[i]; };
-    void set(int i, int value) { A[i] = value; };
-    int getSize() { return size; };
     void heapSort(void);
     void printArray();
     void printHeap(bool);
@@ -39,17 +36,17 @@ Heap::Heap(int *a, int len)
     A = a;
     size = len;
     capacity = len;
-    build_max_Heap();
+    buildMaxHeap();
 }
 
 // 维护堆的性质
-void Heap::max_Heapify(int i)
+void Heap::maxHeapify(int i)
 {
     while (i < (size >> 1))
     {
         int l = left(i), r = right(i);
         int largest = i;
-        if (l < size && A[l] > A[i])
+        if (l < size && A[l] > A[largest])
             largest = l;
         if (r < size && A[r] > A[largest])
             largest = r;
@@ -65,11 +62,11 @@ void Heap::max_Heapify(int i)
 }
 
 // 建堆
-void Heap::build_max_Heap()
+void Heap::buildMaxHeap()
 {
     int i = (size - 1) / 2;
     while (i >= 0)
-        max_Heapify(i--);
+        maxHeapify(i--);
 }
 
 // 打印堆
@@ -122,14 +119,14 @@ void Heap::heapSort()
     for (int i = size - 1; i > 0; i--)
     {
         swap(A[0], A[i]);
-        size -= 1;
-        max_Heapify(0);
+        size--;
+        maxHeapify(0);
         // printHeap(false);
     }
 }
 
 // 测试1：建堆
-void test1_build_max_Heap()
+void test1_buildMaxHeap()
 {
     int a[] = {5, 3, 17, 10, 84, 19, 6, 22, 9};
     Heap heap = Heap(a, GET_LEN(a));
@@ -143,12 +140,12 @@ void test2_heapsort()
     Heap heap = Heap(a, GET_LEN(a));
     heap.printHeap(false);
     heap.heapSort();
-    heap.printHeap(false);
+    heap.printArray();
 }
 
 int main()
 {
-    // test1_build_max_Heap();
+    // test1_buildMaxHeap();
     test2_heapsort();
     return 0;
 }

@@ -1,0 +1,11 @@
+在未确定key的最终位置时，仅将父节点下移
+
+HEAP-INCREASE-KEY(A, i, key):
+	if key < A[i]
+		error "New key is smaller than current key"
+	while i > 1 and A[PARENT(i)] < key
+		A[i] = A[PARENT(i)]
+		i = PARENT(i)
+	A[i] = key
+
+注：代码见：EG_6_5_1__最大优先队列.cpp  注释掉的increaseKey()函数

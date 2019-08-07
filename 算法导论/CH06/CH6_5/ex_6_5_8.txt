@@ -1,0 +1,10 @@
+HEAP-DELETE(A, i):
+//  若原A[i]更小，则增加键值至A[A.heap-size]，并将其上升
+if A[i] < A[A.heap-size]
+	HEAP-INCREASE-KEY(A, i, A[A.heap-size])
+	A.heap-size -= 1
+//  若原A[i]更大，则维护最大堆性质，将新键值A[A.heap-size]下降
+else
+	A[i] = A[A.heap-size]
+	A.heap-size -= 1
+	MAX-HEAPIFY(A,i)
