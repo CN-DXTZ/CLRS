@@ -1,1 +1,28 @@
-基本就是大于变小于，小于变大于，具体见代码，懒得写伪代码了
+(1)
+MINIMUM(A)
+    return A[1]
+
+(2)
+EXTRACT-MIN(A)
+    if A.hipe-size < 1
+        error "heap underflow"
+    min = A[1]
+    A[1] = A[A.hipe-size]
+    A.hipe-size = A.hipe-size - 1
+    MIN-HEAPIFY(A, 0)
+    return min
+
+(3)
+DECREASE-KEY(A, i, key)
+    if key > A[i]
+        error "new key is larger than current key"
+    while i > 0 and A[parent(i)] > key
+        A[i] = A[parent(i)]
+        i = parent(i)
+    A[i] = key
+
+(4)
+INSERT(A, key)
+    A.hipe-size = A.hipe-size + 1
+    A[A.hipe-size] = +∞
+    DECREASE-KEY(A, A.hipe-size, key)

@@ -39,7 +39,7 @@ Heap::Heap(int *a, int len)
     buildMaxHeap();
 }
 
-// 维护堆的性质
+// 维护堆的性质，下降该节点
 void Heap::maxHeapify(int i)
 {
     while (i < (size >> 1))

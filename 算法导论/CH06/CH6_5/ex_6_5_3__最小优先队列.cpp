@@ -89,7 +89,7 @@ int MinPriorityQueue::extractMin()
     return min;
 }
 
-// 将第i个元素的键值增加到key并上升该节点
+// 将第i个元素的键值减少到key并上升该节点
 void MinPriorityQueue::decreaseKey(int i, int key)
 {
     if (key > A[i])

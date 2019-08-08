@@ -1,0 +1,85 @@
+(1)
+2  3  4  5
+8  9  12 ∞
+14 16 ∞  ∞
+∞  ∞  ∞  
+
+(2)
+∵ ∀ i∈[1,m], j∈[1,n]，必有 Y[1,1] <= Y[i,j] <= Y[m,n]
+∴ 正确 
+
+(3)
+T(p) = T(p-1) + O(1)
+     = O(p)
+
+MIN-HEAPIFY(A, i, j)
+    while i <= A.M and j <= A.N and (A.N * (i-1) + j) <= A.heap-size)
+        nextI = i + 1, nextJ = j + 1
+        smallestI = i, smallestJ = j
+        if nextJ < A.N and (A.N * (i-1) + nextJ) <= A.heap-size and A[i][nextJ] < A[smallestI][smallestJ]
+            smallestI = i, smallestJ = nextJ
+        if nextI < A.M and (A.N * (nextI-1) + j) <= A.heap-size and A[nextI][j] < A[smallestI][smallestJ]
+            smallestI = nextI, smallestJ = j
+        if smallestI != i or smallestJ != j
+            swap(A[i][j], A[smallestI][smallestJ])
+            i = smallestI, j = smallestJ
+        else
+            break
+EXTRACT-MIN()
+    if A.heap-size < 1
+        error "heap underflow"
+    min = A[1][1]
+    A[1][1] = A[(A.heap-size - 1) / A.N + 1][A.heap-size % A.N]
+    A[(A.heap-size - 1) / A.N + 1][A.heap-size % A.N] = INT32_MAX
+    A.heap-size--
+    MIN-HEAPIFY(1, 1) 
+    return min
+
+(4)
+DECREASE-KEY(A, i, j key)
+    if key > A[i][j]
+        error "new key is larger than current key"
+
+    A[i][j] = key
+    while i >= 0 and >= 0 and (A.N * (i-1) + j) > 0)
+        int nextI = i - 1, nextJ = j - 1;
+        int largestI = i, largestJ = j;
+        if nextJ >= 0 and A[i][nextJ] > A[largestI][largestJ]
+            largestI = i, largestJ = nextJ
+        if nextI >= 0 and A[nextI][j] > A[largestI][largestJ]
+            largestI = nextI, largestJ = j
+        if smallestI != i or smallestJ != j
+            swap(A[i][j], A[largestI][largestJ])
+            i = largestI, j = largestJ
+        else
+            break
+INSERT(A, key)
+    A.heap-size++
+    A[(A.heap-size - 1) / A.N + 1][A.heap-size % A.N] = INT32_MAX
+    DECREASE-KEY((A.heap-size - 1) / A.N + 1, A.heap-size % A.N, key)
+
+(5)
+Σ_(i=1)^(m){
+     Σ_(j=1)^(n){ 
+         O(i+j)
+      } } = O(n^3)
+
+SORT(A)
+    for i = A.heap-size downto 1    
+        swap(A[1][1], A[(A.heap-size - 1) / A.N + 1][A.heap-size % A.N])
+        A.heap-size--
+        MIN-HEAPIFY(1, 1)
+    }
+}
+
+(6)
+FIND(A, key)
+    i = A.M, j = 1
+    while i >= 1 and j <= N
+        if (A[i][j] == key)
+            return {i, j}
+        if (A[i][j] < key)
+            j++
+        else
+            i--
+    return {-1, -1}

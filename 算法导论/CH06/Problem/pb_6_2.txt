@@ -1,0 +1,56 @@
+(1)
+PARENT(i, d)
+    return i / d
+CHILD(i, d, c)
+    return (i-1) * d + c + 1
+MAX-D-HEAPIFY(A, i, d)
+    end = parent(A.hipe-size)
+    while i <= end:
+        currChild = child(i, d, 0)
+        largest = i
+        for j = 1 to d
+            if currChild <= A.hipe-size and A[currChild] > A[largest]
+                largest = currChild
+            currChild++;
+        if largest != i
+            swap(A[i], A[largest])
+            i = largest
+        else
+            break;
+BUILD-MAX-D-HEAPIFY(A, d)
+    for i = PARENT(size, D) downto 1
+        MAX-D-HEAPIFY(A, i, d)
+
+(2)
+log_d(n)
+
+(3)
+log_d(n)
+
+EXTRACT-MAX(A, d)
+    if A.hipe-size < 1
+        error "heap underflow"
+    max = A[1]
+    A[1] = A[A.hipe-size]
+    A.hipe-size = A.hipe-size - 1
+    MAX-D-HEAPIFY(A, 0, d)
+    return max
+
+(4)(交换d,e问的顺序)
+log_d(n)
+
+INCREASE-KEY(A, i, key)
+    if key < A[i]
+        error "new key is smaller than current key"
+    while i > 0 and A[parent(i)] < key
+        A[i] = A[parent(i)]
+        i = parent(i)
+    A[i] = key
+
+(5)
+log_d(n)
+
+INSERT(A, key)
+    A.hipe-size = A.hipe-size + 1
+    A[A.hipe-size] = -∞
+    INCREASE-KEY(A, A.hipe-size, key)
